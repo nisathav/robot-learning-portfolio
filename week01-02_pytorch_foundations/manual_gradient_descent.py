@@ -22,6 +22,7 @@ for epoch in range(1000):
     loss.backward()
 
     # 4. Update — IMPORTANT: must be wrapped in `with torch.no_grad():`
+    # Don't track gradients while I'm updating the parameters.
     with torch.no_grad():
         w -= lr * w.grad
         b -= lr * b.grad
