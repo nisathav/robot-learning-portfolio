@@ -1,5 +1,5 @@
 import torch
-import torch.nn as nn
+import torch.nn as nn //creaating neural networks
 import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
@@ -15,7 +15,7 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
 
 # --- model ---
-class MyNet(nn.Module):
+class MyNet(nn.Module): #creating the neural network model including the number of layer, input translation and layer interonnection
     def __init__(self):
         super().__init__()
         self.layer1 = nn.Linear(in_features=784, out_features=128)
@@ -112,7 +112,6 @@ the assignments needs accuracy more than 97%, so doing the following changes but
     1. changing the epoch range from 5 to 15
         effect on the output - it worked accuracy above 97.97%
     2. try changing the torch.optim.SGD to torch.optim.Adam got 97.04%
-
 """
 plt.plot(epoch_losses)
 plt.xlabel("Epoch")
