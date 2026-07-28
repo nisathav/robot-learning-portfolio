@@ -19,10 +19,6 @@ class SensorDataset(Dataset):
         target = self.signal[idx+self.window_size]
         return window, target
 
-# loading synthetic dataset
-timesteps = torch.linspace(0, 100, 1000)   # 1000 points over a stretch of "time"
-signal = torch.sin(timesteps) + torch.randn(1000) * 0.1   # sine wave + small noise
-
 if __name__ == "__main__": #was this file run directly, or was it imported by something else?, only activate when run directly
     torch.manual_seed(42)  # reproducibility
     """
@@ -44,5 +40,5 @@ if __name__ == "__main__": #was this file run directly, or was it imported by so
 
     # loading the data into dataloader for furthur batch processing
     loader = DataLoader(dataset, batch_size=32, shuffle=True)
-    windows, targets = next(iter(loader))
+    windows, targets = next(iter(loader)) #it iterates through the batches and returns the next item form the iterator
     print(f"Batch shapes: windows={windows.shape}, targets={targets.shape}")

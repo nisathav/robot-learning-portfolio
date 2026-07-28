@@ -1,5 +1,5 @@
 import torch
-import torch.nn as nn //creaating neural networks
+import torch.nn as nn #creaating neural networks
 import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
@@ -63,16 +63,12 @@ for epoch in range(num_epochs):
     for images, labels in train_loader:
         # 1. forward
         outputs = model(images)
-
         # 2. loss
         loss = criterion(outputs, labels)
-
         # 3. backward
         loss.backward()
-
         # 4. update
         optimizer.step()
-
         # 5. zero grad
         optimizer.zero_grad()
 
